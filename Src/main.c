@@ -36,6 +36,7 @@
 #include "gpio.h"
 
 /* USER CODE BEGIN Includes */
+#include "LCDKeypadShield.h"
 
 /* USER CODE END Includes */
 
@@ -63,7 +64,8 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
+	uint32_t sec=0;
+	
   /* USER CODE END 1 */
 
   /* MCU Configuration----------------------------------------------------------*/
@@ -78,7 +80,10 @@ int main(void)
   MX_GPIO_Init();
 
   /* USER CODE BEGIN 2 */
-
+	LCD_Init();
+	
+	LCD_Start();
+	
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -88,7 +93,9 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-
+		LCD_Timer(sec);
+		++sec;
+		HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 
